@@ -6,7 +6,7 @@ class Admin::RestaurantsController < ApplicationController
    :destroy]
 
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.page(params[:page]).per(10)
   end
 
   # def show
