@@ -25,10 +25,16 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="pull-right text-right nav navbar-nav">
-
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
-
+          <% if flash[:notice]%>
+            <div class="container">
+              <div class="alert alert-success" role="alert"><%= notice %></div>
+            </div>
+          <% end %>
+          <% if flash[:alert]%>
+            <div class="container">
+              <div class="alert alert-warning" role="alert"><%= alert %></div>
+            </div>
+          <% end %>
           <% if current_user %>
             Hi, <%= current_user.email %>
               <%= link_to('登出', destroy_user_session_path, method: :delete) %> |
