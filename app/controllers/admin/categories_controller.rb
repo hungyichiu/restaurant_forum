@@ -28,6 +28,14 @@ class Admin::CategoriesController < ApplicationController
     
   end
 
+  def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+    flash[:alert] = "category was successfully deleted"
+    redirect_to admin_categories_path
+    
+  end
+
   def create
     @category =  Category.new(category_params)
 
