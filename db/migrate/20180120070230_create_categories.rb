@@ -6,6 +6,6 @@ class CreateCategories < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-    add_column :restaurants, :category_id, :intger
+    add_column :restaurants, :category_id, :integer
   end
 end
