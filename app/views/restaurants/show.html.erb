@@ -44,10 +44,17 @@
     <!-- 顯示與餐廳相關的評論 -->
     <% @restaurant.comments.each do |comment|%>
     <div>
+      <!-- 用split 和 first 來擷取信箱字串作為名稱使用-->
       <h4><%= comment.user.email.split("@").first %></h4>
       <p><%= simple_format comment.content %></p>
       <p class="text-muted">
-        <em><%= time_ago_in_words(comment.created_at) %> ago </em>
+        <!-- 用 time_ago_in_words  變更顯示效果-->
+        <em><%= time_ago_in_words(comment.created_at) %> ago - </em>
+
+        <% if current_user.admin? %><!-- show delete item only admin -->
+          <%= link_to "Delete", restaurant_comment_path(@restaurant, comment), method: :delete %>
+        <%end %>
+
       </p>
     </div>
     <% end %>
@@ -59,6 +66,7 @@
       </div>
       <div class= "form-group" >
        <%= f.submit %>
+
        <%= f.button "Cancel", type: :reset, class: "btn btn default"%>
       </div>
     <% end %>
