@@ -2,16 +2,16 @@
 <div class="container">
   <div class="row">
 
-    <% if @restaurant.errors.any? %>
+    <% if restaurant.errors.any? %>
       <h2>We have some errors here !</h2>
       <ul>
-        <% @restaurant.errors.full_messages.each do |msg| %>
+        <% restaurant.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
     <% end %>
 
-    <%= form_for  [:admin, @restaurant] do |f| %>
+    <%= form_for  [:admin, restaurant] do |f| %>
 
       <div class="form-group">
         <%= f.label :category %>
