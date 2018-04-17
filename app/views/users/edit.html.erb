@@ -1,0 +1,30 @@
+<div class="container">
+  <dvi class="row">
+    <h3>Edit Profile</h3>
+
+    <%= form_for [@user] do |u|%>
+      <div class= "form-group" >
+       <%= u.label :name, "Name"%>
+       <%= u.text_area :name, placeholder: "留個言吧～", class: "form-controller" %>
+      </div>
+
+      <div class= "form-group" >
+       <%= u.label :intro, "自我介紹"%>
+       <%= u.text_area :intro, placeholder: "快來推薦自己，讓大家更了解你吧！", class: "form-controller" %>
+      </div>
+
+      <div class="form-group">
+        <%= u.label :avatar, "大頭照上傳" %>
+        <%= image_tag @user.avatar, width: '300px' if @user.avatar? %>
+        <%= u.file_field :avatar %>
+      </div>
+
+      <div class= "form-group" >
+       <%= u.submit "Update", class: "btn btn-default"%>
+
+       <%= u.button "Cancel", type: :reset, class: "btn btn-default"%>
+      </div>
+    <% end %>
+
+  </dvi>
+</div>
