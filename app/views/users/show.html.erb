@@ -14,7 +14,26 @@
         <%= link_to 'Edit Profile', edit_user_path(@user), class: "btn btn-primary" %>
 
       </div>
+
+
       <div class="clearfix"></div>
+
+      <div class="divider"></div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Panel title</h3>
+        </div>
+        <div class="panel-body">
+          <% @commented_restaurants.each do |restaurant| %>
+            <!-- 按需求讀取資料 -->
+            <div class="my-restaurant">
+            <%= restaurant.image %>
+            <%= restaurant.name %>
+            </div>
+          <% end %>
+        </div>
+      </div>
       
     </div>
 

@@ -9,6 +9,9 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  #By default, each controller will include all helpers." 
+  config.action_controller.include_all_helpers = false
+
   # Show full error reports.
   config.consider_all_requests_local = true
 
