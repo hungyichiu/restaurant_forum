@@ -24,15 +24,21 @@
         <div class="panel-heading">
           <h3 class="panel-title">Panel title</h3>
         </div>
+
         <div class="panel-body">
           <% @commented_restaurants.each do |restaurant| %>
             <!-- 按需求讀取資料 -->
             <div class="my-restaurant">
-            <%= restaurant.image %>
-            <%= restaurant.name %>
+            <div>
+            <%= image_tag "0#{rand(20).to_s.rjust(2,'0')}.jpg", class: "img-responsive img-rounded" %></div>
+            <h5>
+            <%= link_to restaurant.name, restaurant_path(@commented_restaurants) %>
+            </h5>
             </div>
           <% end %>
+
         </div>
+
       </div>
       
     </div>

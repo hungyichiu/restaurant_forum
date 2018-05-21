@@ -29,5 +29,16 @@
 }
 
 .my-restaurant {
-  
+  display: inline-block;
+  text-align: center;
+  padding: 7px 7px 0 7px;
+}
+
+.my-restaurant > div{
+  height: 60px;
+  width: 80px;  
+}
+
+.my-restaurant {
+  max-height: 100%;
 }
